@@ -24,7 +24,6 @@ h1{
 }
 #text{
     text-align: center;
-    background: white;
     margin-bottom: 0px;
     color: black;
     padding-left: 100px;
@@ -34,6 +33,9 @@ h1{
     justify-content: flex-start;
 }
 #text h4{
+    background-color: white;
+    margin: 4px;
+    border-radius: 5px;
     font-size: 1.2em;
     margin-top: 0px;
 }
@@ -59,12 +61,6 @@ h1{
     align-self: center;
 }
 
-#characterInformation{
-    margin-right: 0px;
-    border: 2px solid brown;
-    border-radius: 20px;
-    background: linear-gradient(brown, orangered);
-}
 #but_row{
     margin-top: 10px;
     border: 2px solid brown;
@@ -85,4 +81,7 @@ a:hover{
     padding-left: 10px;
     padding-right: 10px;
     transition: 0.3s;
+}
+h2,h3{
+    text-align: center;
 }
