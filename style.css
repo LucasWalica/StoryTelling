@@ -3,6 +3,10 @@ body,html{
     background: black;
     color: white;
 }
+h1{
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+}
 .hud{
     border-radius: 5px;
     background: green;
@@ -60,4 +64,25 @@ body,html{
     border: 2px solid brown;
     border-radius: 20px;
     background: linear-gradient(brown, orangered);
+}
+#but_row{
+    margin-top: 10px;
+    border: 2px solid brown;
+    border-radius: 5px;
+    padding: 10px;
+    background: orangered;
+}
+a{
+    text-decoration: none!important;
+    color: white!important;
+    border: 2px solid rgb(92, 29, 29);
+    padding: 5px;
+    background: brown;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+a:hover{
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: 0.3s;
 }
