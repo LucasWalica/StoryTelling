@@ -85,3 +85,8 @@ a:hover{
 h2,h3{
     text-align: center;
 }
+#char_name{
+    background: white;
+    border-radius: 5px;
+    font-size: 1.2em;
+}

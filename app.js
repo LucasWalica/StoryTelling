@@ -28,28 +28,34 @@ const personajes = [
 // cada persona tiene un mensaje propio  y un outcom en el oro de la taverna y una descripcion 
 // idiomas 4 => ingles, español, checo, holandes
 
+
 // #personaje_dice #char_name #description #body_char #face_hablante #reject #accept   
 document.addEventListener("DOMContentLoaded", function() {
+    
     count = 0;
-    for(chararcer in personajes){
-        let div = document.createElement('div');
-        div.innerHTML = personajes[count].mensaje;
-        div.innerHTML += "<br/>"+ personajes[count].dineroTaberna;
-        div.innerHTML += "<br/>"+ personajes[count].textoJefeEntrar;
-        div.innerHTML += "<br/>" + personajes[count].mensajeRechazar;
-        
-        let img = document.createElement('img');
-        img.src = personajes[count].body
-        img.height = 400;
-        img.width = 200;
-        let img_face = document.createElement('img');
-        img_face.src  = personajes[count].face
-        img_face.height = 100;
-        img_face.width = 100;
-        count++;
-        document.body.appendChild(img)
-        document.body.appendChild(img_face)
-        document.body.appendChild(div)
-    }
+    
+    let message =  document.querySelector('#personaje_dice')
+    let name = document.querySelector('#char_name')
+    let body = document.querySelector('#body_char')
+    let face = document.querySelector('#face_hablante')
+    message.innerHTML = personajes[count].mensaje
+    name.innerHTML = personajes[count].nombre
+    body.src = personajes[count].body
+    face.src = personajes[count].face
+
+    let acceptBut = document.querySelector('#accept')
+    acceptBut.addEventListener('click', function(event){
+        event.preventDefault();
+        if(count<personajes.length-1){
+            count++;
+            message.innerHTML = personajes[count].mensaje
+            name.innerHTML = personajes[count].nombre
+            body.src = personajes[count].body
+            face.src = personajes[count].face
+        }else {
+            return;
+        }
+    })
+
 });
   
