@@ -55,13 +55,13 @@ document.addEventListener("DOMContentLoaded", function() {
     let acceptBut = document.querySelector('#accept')
     acceptBut.addEventListener('click', function(event){
         event.preventDefault();
-            count++;
-            cargarCuerpo()
-            count_monedas += personajes[count-1].dineroTaberna
-            coin_document.innerHTML = count_monedas;
-            loadCommentEntrar();
-            checkResources();
-            
+        checkFinal();
+        count++;
+        cargarCuerpo()
+        count_monedas += personajes[count-1].dineroTaberna
+        coin_document.innerHTML = count_monedas;
+        loadCommentEntrar();
+        check()
     })
 
 
@@ -89,8 +89,6 @@ document.addEventListener("DOMContentLoaded", function() {
         
         vinosPopUp.innerHTML = 0;
         monedasPopUp.innerHTML = 0;
-        checkResources()
-
     }
 
     function cargarCuerpo(){
@@ -103,13 +101,11 @@ document.addEventListener("DOMContentLoaded", function() {
     let rejectBut = document.querySelector('#reject')
     rejectBut.addEventListener('click', function(event){
         event.preventDefault();
-        if(count<=personajes.length){
-            count++;
-            cargarCuerpo()
-            loadCommentNoEntrar();
-        }else {
-            return;
-        }
+        checkFinal();
+        count++;
+        cargarCuerpo()
+        loadCommentNoEntrar();
+        check();        
     })
 
     // aceptar popUp
@@ -119,18 +115,7 @@ document.addEventListener("DOMContentLoaded", function() {
         popUp.style.visibility = "hidden";
     })
 
-    // mejorar con addChildern popChildren
-    function checkResources(){
-        if(vinos_superior.innerHTML<=0){
-            alert("Fin de los vinos")
-            remove()
-        }
-        if(vidas_superior.innerHTML<=0){
-            alert("Fin de las vidas")
-            remove()
-        }
-    } 
-
+  
     function remove(){
         const hud = document.getElementById('test')
         hud.parentElement.removeChild(hud);
@@ -138,9 +123,42 @@ document.addEventListener("DOMContentLoaded", function() {
         popUp.style.visibility = "hidden";
     }
 
+    function check(){
+        checkFinal()
+        checkResources()
+    }
+    function checkFinal(){
+        if(count>=personajes.length && coin_document.innerHTML>0){
+            remove();
+            document.body.innerHTML += taberna_positivo;
+        }
+        if(count>=personajes.length && coin_document.innerHTML<=0){
+            remove();
+            document.body.innerHTML += taberna_no_dinero;
+        }
+    }
+      // mejorar con addChildern popChildren
+      function checkResources(){
+        if(vinos_superior.innerHTML<=0){
+            alert("Fin de los vinos")
+            remove()
+            document.body.innerHTML+=vino_no_restante
+        }
+        if(vidas_superior.innerHTML<=0){
+            alert("Fin de las vidas")
+            remove()
+            document.body.innerHTML+= vidas_no_restante
+        }
+    } 
+
 });
   
 
+// divs de final de partida
+const vino_no_restante = '<div class="wine_lost"><h1>Nos hemos quedado sin vino elfico</h1><h2>Ha sido un dia muy exigente para los camareros y los bardos, la clientela ha sido muy amplia y han consumido todo</h2></div>'
+const vidas_no_restante = ' <div class="life_lost"><h1>Has muerto tras tantos incidentes con clientes insatisfechos</h1><h2>Como te dijo Erdiran es un trabajo dificil por el trato con personas de todo tipo</h2></div>'
+const taberna_no_dinero  = '<div class="negative_coins"><h1>Tras todo el dia te das cuenta de que la tienda ha perdido dinero</h1><h2>Has dejado pasar a todo tipo de personas no deseables que han aruinado la taberna mas famosa de todo el reino</h2></div>'
+const taberna_positivo = '<div class="positive_coins"><h1>Tras todo el dia y el recuento de caja has ganado dinero</h1><h2>Erdiran está feliz de tu labor y te da un dinero extra por su excelente labor</h2></div>'
 
 // nombre, body, face, mensaje, dineroTaberna, textoResultadoEntrar
 const personajes = [
