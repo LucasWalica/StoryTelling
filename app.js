@@ -12,6 +12,25 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('seleccionar-idioma').addEventListener('change', function(){
         idioma_seleccionado = this.value
         cargarCuerpo()
+        // botones
+        let butAcceptInform = document.getElementById('acceptInform');
+        butAcceptInform.innerHTML = botonAceptarInforme[idioma_seleccionado];
+        let acceptButton = document.getElementById('accept');
+        acceptButton.innerHTML = aceptButton[idioma_seleccionado];
+        let rejectButton =document.getElementById('reject');
+        rejectButton.innerHTML = rechazarButton[idioma_seleccionado]; 
+        // resultados informe 
+        let informeh1 = document.getElementById('resultadosInforme');
+        informeh1.innerHTML = informeH1[idioma_seleccionado]
+        let textSh1 = document.getElementById('startH1');
+        let textSh2 = document.getElementById('startH2');
+        let textSh3 = document.getElementById('startH3');
+        textSh1.innerHTML = textStartH1[idioma_seleccionado];
+        textSh2.innerHTML = textStartH2[idioma_seleccionado];
+        textSh3.innerHTML = textStartH3[idioma_seleccionado];
+        let signButtn = document.getElementById('sign');
+        signButtn.innerHTML = signButton[idioma_seleccionado]
+    
     })  
     
     
@@ -190,6 +209,55 @@ const taberna_positivo ={
 
 
 
+const botonAceptarInforme ={
+    "es":"Aceptar informe",
+    "en":"Accept report",
+    "cz":"Přijmout zprávu",
+    "nl":"Rapport accepteren",
+} 
+const aceptButton = {
+    "es":"Dejar entrar",
+    "en":"Let in",
+    "cz":"Pustit dovnitř",
+    "nl":"Binnenlaten"
+}
+const rechazarButton = {
+    "es":"No dejar entrar",
+    "en":"Dont let in",
+    "cz":"Nepustit dovnitř",
+    "nl":"Laat niet binnen"
+}
+const informeH1 = {
+    "es":"Informe del cliente",
+    "en":"Client Report",
+    "cz":"Klientská zpráva",
+    "nl":"Klant rapport"
+}
+
+const textStartH1 = {
+    "es":"Bienvenido a la taberna mas famosa de todo el reino",
+    "en":"Welcome to the most famous tavern in the entire kingdom",
+    "cz":"Vítejte v nejslavnější taverně v celém království",
+    "nl":"Welkom in de beroemdste taverne van het hele koninkrijk"
+}
+const textStartH2 = {
+    "es":" Me presento, soy Erdiran, el jefe, necesitaba a alguien que se ocupase de dejar entrar o no, a los clientes, confio en ti \n Tenemos que tener cuidado con las reservas de vino y tu vida, no vaya a ser que se lo beban todo o al no dejarles entrar te hagan algo.",
+    "en":"I introduce myself, I'm Erdiran, the boss, I needed someone to take care of whether or not to let clients in, I trust you \n We have to be careful with the wine reserves and your life, lest they drink it all or by not letting them in they do something to you.",
+    "cz":"Představuji se, jsem Erdiran, šéf, potřeboval jsem někoho, kdo by se postaral o to, zda pustit klienty dovnitř, věřím vám \n Musíme být opatrní se zásobami vína a tvým životem, aby to všechno nevypili nebo ti něco neudělali, když je nepustíme dovnitř.",
+    "nl":"Ik stel mezelf voor, ik ben Erdiran, de baas, ik had iemand nodig die ervoor zorgde of ik klanten wel of niet binnenliet, ik vertrouw je \n We moeten voorzichtig zijn met de wijnreserves en met uw leven, zodat ze niet alles opdrinken of door ze niet binnen te laten, ze u iets aandoen."
+}
+const textStartH3 = {
+    "es":"Si quieres ayudarme firma el contrato",
+    "en":"If you want to help me sign the contract",
+    "cz":"Pokud mi chcete pomoci podepiste smlouvu",
+    "nl":"Als je me wilt helpen het contract te ondertekenen"
+}
+const signButton = {
+    "es":"Firmar",
+    "en":"Sign",
+    "cz":"Podepsat",
+    "nl":"Teken"
+}
 
 // nombre, body, face, mensaje, dineroTaberna, textoResultadoEntrar
 const personajes = [
