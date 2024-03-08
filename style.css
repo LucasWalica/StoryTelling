@@ -2,6 +2,7 @@
     font-family: robot;
     src: url(./assets/RobotoSlab-VariableFont_wght.ttf);
 }
+
 body,html{
     background: black!important;
     font-family: robot!important;
@@ -60,19 +61,17 @@ h1{
 }
 #cont{
     background-image: url(./sitios/medieval_tavern_entrance.webp);
-    width: 100%;
-    height: 100%;
+    width: 40vh;
+    height: 50vh;
     position: relative;
     border: 2px solid black;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     color: white;
     display: flex;
-    justify-content:space-evenly;
+    justify-content:center;
     border-radius: 5px;
     border-radius: 20px;
-    width: 500px;
-    height: 300px;
 }
 
 #body_char{
