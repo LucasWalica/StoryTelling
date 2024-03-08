@@ -54,3 +54,18 @@
     background: linear-gradient(gold, goldenrod);
 }
 
+
+#seleccionar-idioma{
+    width: 20%;
+    padding: 10px;
+    border: 2px solid brown;
+    border-radius: 5px;
+    background: linear-gradient(brown, orangered);
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    margin: 5px;
+}
+#seleccionar-idioma option{
+    color: black;
+    text-shadow: 2px 2px 2px orange;
+}
