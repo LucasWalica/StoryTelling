@@ -63,7 +63,8 @@
     background: linear-gradient(brown, orangered);
     color: white;
     text-shadow: 2px 2px 2px black;
-    margin: 5px;
+    margin: 20px;
+    width: 135px;
 }
 #seleccionar-idioma option{
     color: black;
