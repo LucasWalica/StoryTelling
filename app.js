@@ -140,22 +140,22 @@ document.addEventListener("DOMContentLoaded", function() {
     function checkFinal(){
         if(count>=personajes.length && coin_document.innerHTML>0){
             remove();
-            document.body.innerHTML += taberna_positivo;
+            document.body.innerHTML += taberna_positivo[idioma_seleccionado];
         }
         if(count>=personajes.length && coin_document.innerHTML<=0){
             remove();
-            document.body.innerHTML += taberna_no_dinero;
+            document.body.innerHTML += taberna_no_dinero[idioma_seleccionado];
         }
     }
       // mejorar con addChildern popChildren
       function checkResources(){
         if(vinos_superior.innerHTML<=0){
             remove()
-            document.body.innerHTML+=vino_no_restante
+            document.body.innerHTML+=vino_no_restante[idioma_seleccionado]
         }
         if(vidas_superior.innerHTML<=0){
             remove()
-            document.body.innerHTML+= vidas_no_restante
+            document.body.innerHTML+= vidas_no_restante[idioma_seleccionado]
         }
     } 
 
@@ -163,10 +163,33 @@ document.addEventListener("DOMContentLoaded", function() {
   
 
 // divs de final de partida
-const vino_no_restante = '<div class="wine_lost"><h1>Nos hemos quedado sin vino elfico</h1><h2>Ha sido un dia muy exigente para los camareros y los bardos, la clientela ha sido muy amplia y han consumido todo</h2></div>'
-const vidas_no_restante = ' <div class="life_lost"><h1>Has muerto tras tantos incidentes con clientes insatisfechos</h1><h2>Como te dijo Erdiran es un trabajo dificil por el trato con personas de todo tipo</h2></div>'
-const taberna_no_dinero  = '<div class="negative_coins"><h1>Tras todo el dia te das cuenta de que la tienda ha perdido dinero</h1><h2>Has dejado pasar a todo tipo de personas no deseables que han aruinado la taberna mas famosa de todo el reino</h2></div>'
-const taberna_positivo = '<div class="positive_coins"><h1>Tras todo el dia y el recuento de caja has ganado dinero</h1><h2>Erdiran está feliz de tu labor y te da un dinero extra por su excelente labor</h2></div>'
+const vino_no_restante = {
+    "es":'<div class="wine_lost"><h1>Nos hemos quedado sin vino elfico</h1><h2>Ha sido un dia muy exigente para los camareros y los bardos, la clientela ha sido muy amplia y han consumido todo</h2></div>',
+    "en":'<div class="wine_lost"><h1>We have run out of elven wine</h1><h2>It has been a very demanding day for the waiters and bards, the clientele has been very large and they have consumed everything</h2></div>',
+    "cz":'<div class="wine_lost"><h1>Došlo nám elfí víno</h1><h2>Pro číšníky a bardy to byl velmi náročný den, klientela byla velmi početná a zkonzumovali vše< /h2 ></div>',
+    "nl":'<div class="wine_lost"><h1>We hebben geen elvenwijn meer</h1><h2>Het was een zeer veeleisende dag voor de obers en barden, de klantenkring was erg groot en ze hebben alles opgegeten< /h2 ></div>'
+}
+const vidas_no_restante ={
+    "es":' <div class="life_lost"><h1>Has muerto tras tantos incidentes con clientes insatisfechos</h1><h2>Como te dijo Erdiran es un trabajo dificil por el trato con personas de todo tipo</h2></div>',
+    "en": ' <div class="life_lost"><h1>You have died after so many incidents with dissatisfied customers</h1><h2>As Erdiran told you, it is a difficult job because of dealing with people of all kinds</h2></div >',
+    "cz": ' <div class="life_lost"><h1>Has muerto tras tantos incidentes con clientes insatisfechos</h1><h2>Como te dijo Erdiran es un trabajo difícil por el trato con personas de todo tipo</h2></div >',
+    "nl":' <div class="life_lost"><h1>Je bent gestorven na zoveel incidenten met ontevreden klanten</h1><h2>Zoals Erdiran je vertelde, is het een moeilijke klus vanwege het omgaan met allerlei soorten mensen</h2 ></div >'
+}
+const taberna_no_dinero  ={
+    "es":'<div class="negative_coins"><h1>Tras todo el dia te das cuenta de que la tienda ha perdido dinero</h1><h2>Has dejado pasar a todo tipo de personas no deseables que han aruinado la taberna mas famosa de todo el reino</h2></div>',
+    "en":'<div class="negative_coins"><h1>After the whole day you realize that the store has lost money</h1><h2>You have let in all kinds of undesirable people who have ruined the most famous tavern of the whole kingdom</h2></div>',
+    "cz":'<div class="negative_coins"><h1>Po celém dni si uvědomíte, že obchod přišel o peníze</h1><h2>Vpustili jste dovnitř všechny druhy nežádoucích lidí, kteří zničili nejslavnější krčmu celého království</h2></div>',
+    "nl":'<div class="negative_coins"><h1>Na een hele dag realiseer je je dat de winkel geld heeft verloren</h1><h2>Je hebt allerlei ongewenste mensen binnengelaten die de beroemdste taverne van het geheel hebben verpest koninkrijk</h2></div>'
+}
+const taberna_positivo ={
+    "es":'<div class="positive_coins"><h1>Tras todo el dia y el recuento de caja has ganado dinero</h1><h2>Erdiran está feliz de tu labor y te da un dinero extra por su excelente labor</h2></div>',
+    "en":'<div class="positive_coins"><h1>After the whole day and the cash count you have earned money</h1><h2>Erdiran is happy with your work and gives you extra money for your excellent work</h2 ></div>',
+    "cz":'<div class="positive_coins"><h1>Po celém dni a počtu peněz jste vydělali peníze</h1><h2>Erdiran je s vaší prací spokojený a dává vám peníze navíc za vaši skvělou práci</h2 > </div>',
+    "nl":'<div class="positive_coins"><h1>Na de hele dag en het tellen van de contanten heb je geld verdiend</h1><h2>Erdiran is blij met je werk en geeft je extra geld voor je uitstekende werk</h2 > </div>'
+} 
+
+
+
 
 // nombre, body, face, mensaje, dineroTaberna, textoResultadoEntrar
 const personajes = [
