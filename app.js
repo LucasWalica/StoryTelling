@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
         coin_document.innerHTML = count_monedas;
         loadCommentEntrar();
         check()
+        noneVisibleButtons();
     })
 
 
@@ -134,7 +135,8 @@ document.addEventListener("DOMContentLoaded", function() {
         count++;
         cargarCuerpo()
         loadCommentNoEntrar();
-        check();        
+        check();  
+        noneVisibleButtons()      
     })
 
     // aceptar popUp
@@ -142,8 +144,14 @@ document.addEventListener("DOMContentLoaded", function() {
     acceptInform.addEventListener('click', function(){
         let popUp = document.querySelector('#popUp');
         popUp.style.visibility = "hidden";
+        rejectBut.style.visibility ="visible";
+        acceptBut.style.visibility="visible"
     })
 
+    function noneVisibleButtons(){
+        rejectBut.style.visibility = "hidden";
+        acceptBut.style.visibility = "hidden";
+    }
   
     function remove(){
         const hud = document.getElementById('test')
